@@ -12,6 +12,13 @@ class ControllerExtensionThemerapid extends Controller {
 
 		$this->load->model('setting/setting');
 
+		$this->load->model('localisation/language');
+
+		$languages = $this->model_localisation_language->getLanguages();
+		$language_id = $this->config->get('config_language_id');
+		$data['languages'] = $languages;
+		$data['language_id'] = $language_id;
+		
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			$this->model_setting_setting->editSetting('theme_rapid', $this->request->post, $this->request->get['store_id']);
 
@@ -344,6 +351,34 @@ class ControllerExtensionThemerapid extends Controller {
 		} else {
 			$data['theme_rapid_image_location_height'] = 50;
 		}
+		
+
+		// main header menu
+		if (isset($this->request->post['theme_rapid_main_menu_toggle'])) {
+			$data['theme_rapid_main_menu_toggle'] = $this->request->post['theme_rapid_main_menu_toggle'];
+		} elseif (isset($setting_info['theme_rapid_main_menu_toggle'])) {
+			$data['theme_rapid_main_menu_toggle'] = $setting_info['theme_rapid_main_menu_toggle'];
+		} else {
+			$data['theme_rapid_main_menu_toggle'] = false;
+		}
+		
+		if (isset($this->request->post['theme_rapid_main_menu_item'])) {
+			$results = $this->request->post['theme_rapid_main_menu_item'];
+		} elseif (isset($setting_info['theme_rapid_main_menu_item'])) {
+			$results = $setting_info['theme_rapid_main_menu_item'];
+		} else {
+			$results = array();
+		}
+
+		$data['theme_rapid_main_menu_items'] = array();
+		
+		foreach ($results as $result) {
+			$data['theme_rapid_main_menu_items'][] = array(
+					'title' => $result['title'],
+					'link'  => $result['link'],
+					'sort'  => $result['sort']
+				);	
+			}
 		
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
