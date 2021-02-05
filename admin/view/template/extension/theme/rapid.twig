@@ -367,36 +367,39 @@
                 </div>
                 
                 <div class="tab-pane" id="tab-footer">
-                  3
-                 <!--  <div class="form-group">
-                    <label class="col-sm-2 control-label">Включить иконки в подвале</label>
-                    <div class="col-sm-10">
-                      <label class="radio-inline">
-                        <input type="radio" name="rapid_pay_icons_toggle" value="1" <?php if ($rapid_pay_icons_toggle) { echo 'checked'; } ?> /> Да
-                      </label>
-                      <label class="radio-inline">
-                        <input type="radio" name="rapid_pay_icons_toggle" value="0" <?php if (!$rapid_pay_icons_toggle) { echo 'checked';} ?> /> Нет
-                      </label>
-                    </div>
-                  </div>
-                  <hr>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">Баннер</label>
-                    <div class="col-sm-10">
-                      <div class="inline-block">
-                        <select name="rapid_pay_icons_banner_id" class="form-control">
-                          <option value="-1">-- Выбрать --</option>
-                          <?php foreach ($banners as $banner) { ?>
-                          <?php if ($banner['banner_id'] == $rapid_pay_icons_banner_id) { ?>
-                          <option value="<?php echo $banner['banner_id']; ?>" selected="selected"><?php echo $banner['name']; ?></option>
-                          <?php } else { ?>
-                          <option value="<?php echo $banner['banner_id']; ?>"><?php echo $banner['name']; ?></option>
-                          <?php } ?>
-                          <?php } ?>
-                        </select>
+                      <label class="col-sm-3 control-label">Включить иконки в подвале</label>
+                      <div class="col-sm-9">
+                        <div class="btn-group" data-toggle="buttons">
+                          <label class="btn btn-default {% if not theme_rapid_pay_icons_toggle %} active {% endif %}">
+                            <input type="radio" name="theme_rapid_pay_icons_toggle" value="0" {% if not theme_rapid_pay_icons_toggle %} checked {% endif %}>
+                            <span >Выкл.</span>
+                          </label>
+                          <label class="btn btn-default {% if theme_rapid_pay_icons_toggle %} active {% endif %}">
+                            <input type="radio" name="theme_rapid_pay_icons_toggle" value="1" {% if theme_rapid_pay_icons_toggle %} checked {% endif %}>
+                            <span >Вкл.</span>
+                          </label>
+                        </div>
                       </div>
                     </div>
-                  </div> -->
+                    <hr>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Баннер</label>
+                      <div class="col-sm-9">
+                        <div class="inline-block">
+                          <select name="theme_rapid_pay_icons_banner_id" class="form-control">
+                            <option value="-1">-- Выбрать --</option>
+                            {% for banner in banners %}
+                              {% if banner.banner_id == theme_rapid_pay_icons_banner_id %}
+                                <option value="{{ banner.banner_id }}" selected="selected">{{ banner.name }}</option>
+                              {% else %}
+                                <option value="{{ banner.banner_id }}">{{ banner.name }}</option>
+                              {% endif %}
+                            {% endfor %}
+                          </select>
+                        </div>
+                      </div>
+                    </div> 
                 </div>
               </div>
             </div>

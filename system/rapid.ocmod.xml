@@ -175,7 +175,7 @@
     </operation>
   </file> -->
   	<file path="catalog/controller/common/footer.php">
-		<!-- <operation>
+	 	<operation>
 		  <search><![CDATA[
 				$this->load->language('common/footer');
 		  ]]></search>
@@ -187,23 +187,21 @@
 				$data['language_id'] = $this->config->get('config_language_id');
 
 				$data['rapid'] = array();
-				$data['rapid'] = $this->model_setting_setting->getSetting('rapid');
+				$data['rapid'] = $this->model_setting_setting->getSetting('theme_rapid');
 
 				$rapid = array();
-				$rapid = $this->model_setting_setting->getSetting('rapid', $this->config->get('config_store_id'));
+				$rapid = $this->model_setting_setting->getSetting('theme_rapid', $this->config->get('config_store_id'));
 
-				$pay_icons_banner_id = -99;
-				$data['pay_icons_toggle'] = false;
-				$data['footer_map_toggle'] = false;
-				$data['footer_map'] = array();
+				$theme_rapid_pay_icons_banner_id = -99;
+				$data['theme_rapid_pay_icons_toggle'] = false;
 
 				if(!empty($rapid)){
-					$pay_icons_banner_id = $rapid['rapid_pay_icons_banner_id'];
-					$data['pay_icons_toggle'] = $rapid['rapid_pay_icons_toggle'];
+					$theme_rapid_pay_icons_banner_id = $rapid['theme_rapid_pay_icons_banner_id'];
+					$data['theme_rapid_pay_icons_toggle'] = $rapid['theme_rapid_pay_icons_toggle'];
 				}
 
 				$data['pay_icons'] = array();
-				$pay_icons = $this->model_design_banner->getBanner($pay_icons_banner_id);
+				$pay_icons = $this->model_design_banner->getBanner($theme_rapid_pay_icons_banner_id);
 
 				foreach ($pay_icons as $pay_icon) {
 					if (is_file(DIR_IMAGE . $pay_icon['image'])) {
@@ -215,7 +213,7 @@
 					}
 				}
 		  ]]></add>
-		</operation> -->
+		</operation> 
 		<operation>
 		  <search><![CDATA[
 				$data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));

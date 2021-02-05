@@ -881,30 +881,6 @@ background: #2684BE;
 #content {
 	min-height: 600px;
 }
-/* footer */
-footer {
-	margin-top: 30px;
-	padding-top: 30px;
-	background-color: #303030;
-	border-top: 1px solid #ddd;
-	color: #e2e2e2;
-}
-footer hr {
-	border-top: none;
-	border-bottom: 1px solid #666;
-}
-footer a {
-	color: #ccc;
-}
-footer a:hover {
-	color: #fff;
-}
-footer h5 {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 13px;
-	font-weight: bold;
-	color: #fff;
-}
 /* alert */
 .alert {
 	padding: 8px 14px 8px 14px;
@@ -1200,4 +1176,52 @@ h2.price {
 /* fix oclabs */
 .alert-dismissable .close, .alert-dismissible .close {
 	right: -1px;
+}
+
+.nexer-logo{
+	opacity:0.7;
+}
+.nexer-logo:hover{
+	opacity:1;
+}
+
+
+/*footer*/
+footer{
+	background:#f7f7f7;
+  padding: 15px 0 10px 0;
+	font-size:14px;
+	margin-top:20px;
+}
+footer h4 i{
+	font-size:16px;
+	color:#ccc;
+}
+footer h4 span{
+	font-weight: bold;
+	margin-left: 5px;
+}
+footer ul  {
+  padding:0 20px;
+	color:#ccc;
+}
+footer ul li {
+	margin-top: 4px;
+}
+footer ul li a{
+	color:#333;
+}
+footer hr{
+	margin:10px 0;
+	border-top:1px solid #eee;
+}
+.footer-icons{
+    margin: 5px 0 0 0;
+}
+.footer-icons li {
+    display: inline-block;
+    opacity: 0.75;
+}
+.footer-icons  li:hover {
+    opacity: 1;
 }

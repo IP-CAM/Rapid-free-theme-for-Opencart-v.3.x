@@ -379,7 +379,30 @@ class ControllerExtensionThemerapid extends Controller {
 					'sort'  => $result['sort']
 				);	
 			}
+
+		// pay icons banner
+			
+		if (isset($this->request->post['theme_rapid_pay_icons_toggle'])) {
+			$data['theme_rapid_pay_icons_toggle'] = $this->request->post['theme_rapid_pay_icons_toggle'];
+		} elseif (isset($setting_info['theme_rapid_pay_icons_toggle'])) {
+			$data['theme_rapid_pay_icons_toggle'] = $setting_info['theme_rapid_pay_icons_toggle'];
+		} else {
+			$data['theme_rapid_pay_icons_toggle'] = false;
+		}
 		
+		if (isset($this->request->post['theme_rapid_pay_icons_banner_id'])) {
+			$data['theme_rapid_pay_icons_banner_id'] = $this->request->post['theme_rapid_pay_icons_banner_id'];
+		} elseif (isset($setting_info['theme_rapid_pay_icons_banner_id'])) {
+			$data['theme_rapid_pay_icons_banner_id'] = $setting_info['theme_rapid_pay_icons_banner_id'];
+		} else {
+			$data['theme_rapid_pay_icons_banner_id'] = -1;
+		}
+			
+		$this->load->model('design/banner');
+		$data['banners'] = $this->model_design_banner->getBanners();	
+
+
+
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');

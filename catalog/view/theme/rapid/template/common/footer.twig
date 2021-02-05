@@ -3,25 +3,25 @@
     <div class="row">
       {% if informations %}
       <div class="col-sm-3">
-        <h5>{{ text_information }}</h5>
-        <ul class="list-unstyled">
-         {% for information in informations %}
+        <h4><i class="glyphicon glyphicon-info-sign"></i><span>{{ text_information }}</span></h4>
+        <ul >
+          {% for information in informations %}
           <li><a href="{{ information.href }}">{{ information.title }}</a></li>
           {% endfor %}
         </ul>
       </div>
       {% endif %}
       <div class="col-sm-3">
-        <h5>{{ text_service }}</h5>
-        <ul class="list-unstyled">
+        <h4><i class="glyphicon glyphicon-comment"></i><span>{{ text_service }}</span></h4>
+        <ul >
           <li><a href="{{ contact }}">{{ text_contact }}</a></li>
           <li><a href="{{ return }}">{{ text_return }}</a></li>
           <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
         </ul>
       </div>
       <div class="col-sm-3">
-        <h5>{{ text_extra }}</h5>
-        <ul class="list-unstyled">
+        <h4><i class="fa fa-share"></i><span>{{ text_extra }}</span></h4>
+        <ul >
           <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
           <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
           <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
@@ -29,9 +29,9 @@
         </ul>
       </div>
       <div class="col-sm-3">
-        <h5>{{ text_account }}</h5>
-        <ul class="list-unstyled">
-          <li><a href="{{ account }}">{{ text_account }}</a></li>
+        <h4><i class="glyphicon glyphicon-user"></i><span>{{ text_account }}</span></h4>
+        <ul >
+			<li><a href="{{ account }}">{{ text_account }}</a></li>
           <li><a href="{{ order }}">{{ text_order }}</a></li>
           <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
           <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
@@ -39,14 +39,29 @@
       </div>
     </div>
     <hr>
-    <p>{{ powered }}</p>
+   <div class="row">
+		<div class="col-sm-12 col-md-4">
+			{{ powered }}
+		</div>
+		{% if theme_rapid_pay_icons_toggle %}
+		<div class="col-sm-12 col-md-8 text-right">
+			<ul class="list-unstyled footer-icons">
+				{% for pay_icon in pay_icons %}
+				<li>
+					{% if pay_icon.link %}
+						<a target="_blank" href="{{ pay_icon.link }}"><img src="{{ pay_icon.image }}" alt="{{ pay_icon.title }}" class="img-responsive" /></a>
+					{% else %}
+						<img src="{{ pay_icon.image }}" alt="{{ pay_icon.title }}" class="img-responsive" />
+					{% endif %}
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+		{% endif %}
+	</div>
   </div>
 </footer>
 {% for script in scripts %}
 <script src="{{ script }}" type="text/javascript"></script>
 {% endfor %}
-<!--
-OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
-Please donate via PayPal to donate@opencart.com
-//-->
 </body></html>
