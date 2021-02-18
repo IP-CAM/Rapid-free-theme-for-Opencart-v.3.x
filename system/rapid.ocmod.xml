@@ -163,6 +163,31 @@
       ]]></add>
     </operation>
   </file>
+
+  	<file path="catalog/controller/extension/module/{slideshow,carousel,banner}.php">
+  		<operation>
+      <search><![CDATA[
+      	$this->document->addStyle('catalog/view/javascript/jquery/swiper/css/swiper.min.css');
+      ]]></search>
+     	 <add position="Replace" offset="1"><![CDATA[]]></add>
+   	</operation>
+		<operation>
+      <search><![CDATA[
+      	$this->document->addStyle('catalog/view/javascript/jquery/swiper/css/opencart.css');
+      ]]></search>
+     	 <add position="Replace" offset="1"><![CDATA[]]></add>
+   	</operation>
+   	<operation>
+      <search><![CDATA[
+      	$this->document->addScript('catalog/view/javascript/jquery/swiper/js/swiper.jquery.js');
+      ]]></search>
+     	 <add position="Replace" offset="1"><![CDATA[
+     	 		$this->document->addStyle('catalog/view/theme/rapid/assets/owl-carousel/owl.carousel.css');
+       		$this->document->addScript('catalog/view/theme/rapid/assets/owl-carousel/owl.carousel.min.js'); 
+     	 	]]></add>
+   	</operation>
+  	</file>
+
    <file path="catalog/controller/product/product.php">
     <operation>
       <search><![CDATA[
