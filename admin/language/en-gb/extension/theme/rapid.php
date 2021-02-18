@@ -4,6 +4,7 @@
 
 // Heading
 $_['heading_title']                    = 'Rapid theme';
+$_['text_heading_title']               = 'Rapid theme.';
 
 // Text
 $_['text_extension']                   = 'Extensions';
@@ -50,3 +51,8 @@ $_['error_image_compare']              = 'Compare Image Size dimensions required
 $_['error_image_wishlist']             = 'Wish List Image Size dimensions required!';
 $_['error_image_cart']                 = 'Cart Image Size dimensions required!';
 $_['error_image_location']             = 'Store Image Size dimensions required!';
+
+// icons in module list
+$_['heading_title']             .= ' <a href="https://nexer.by" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="#888" style="float:right;margin:-2px 4px;transition: all ease .2s" onmouseover="this.setAttribute(\'fill\', \'#000\')" onmouseout="this.setAttribute(\'fill\', \'#888\')" width="22" height="22" viewBox="0 0 600 600">
+  				<path d="M75,0L300,188V0H600V500L0,0H75ZM350,230L550,397V50H350V230ZM525,600L300,412V600H0V100L600,600H525ZM250,370L50,204V550H250V370Z"></path>
+				</svg></a>';

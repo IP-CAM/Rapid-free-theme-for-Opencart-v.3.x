@@ -8,7 +8,7 @@ class ControllerExtensionThemerapid extends Controller {
 	public function index() {
 		$this->load->language('extension/theme/rapid');
 
-		$this->document->setTitle($this->language->get('heading_title'));
+		$this->document->setTitle(strip_tags($this->language->get('heading_title')));
 
 		$this->load->model('setting/setting');
 
@@ -27,6 +27,9 @@ class ControllerExtensionThemerapid extends Controller {
 			$this->response->redirect($this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=theme', true));
 		}
 
+		$data['heading_title'] = strip_tags($this->language->get('heading_title'));
+		$data['text_heading_title'] = strip_tags($this->language->get('text_heading_title'));
+		
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
 		} else {
@@ -124,7 +127,7 @@ class ControllerExtensionThemerapid extends Controller {
 		);
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('heading_title'),
+			'text' => strip_tags($this->language->get('heading_title')),
 			'href' => $this->url->link('extension/theme/rapid', 'user_token=' . $this->session->data['user_token'] . '&store_id=' . $this->request->get['store_id'], true)
 		);
 
