@@ -53,7 +53,9 @@
           </div>
         </div>
       </div>
-      <div class="row owl-module"> {% for product in products %}
+      <div class="row owl-module"> 
+         <div class="col-xs-12">
+        {% for product in products %}
         <div class="product-layout  product-list col-xs-12 ">
           <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
             <div class="caption">
@@ -98,7 +100,7 @@
                 </div>
               </div>
           </div>
-        {% endfor %} </div>
+        {% endfor %} </div></div>
       <div class="row">
         <div class="col-sm-6 text-left">{{ pagination }}</div>
         <div class="col-sm-6 text-right">{{ results }}</div>
