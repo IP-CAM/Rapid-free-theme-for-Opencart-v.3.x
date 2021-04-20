@@ -1106,6 +1106,12 @@ background: #2684BE;
     width: 100%;
 }
 
+@media(max-width:767px){
+.nav>li>a {
+    padding: 5px 10px;
+}
+}
+
 /* for OCS 3 */
 .featuder-article-module-ocs .caption h4{
 	margin-bottom: 0;

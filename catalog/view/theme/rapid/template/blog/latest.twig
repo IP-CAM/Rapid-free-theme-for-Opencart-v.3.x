@@ -53,7 +53,8 @@
           </div>
         </div>
       </div>
-      <div class="row featuder-article-module-ocs owl-module">  
+      <div class="row featuder-article-module-ocs owl-module"> 
+      <div class="col-xs-12"> 
         {% for article in articles %} 
           <div class="product-layout product-list col-xs-12">
             <div class="image"><a href="{{ article.href }}"><img src="{{ article.thumb }}" alt="{{ article.name }}" title="{{ article.name }}" class="img-responsive" /></a></div>
@@ -81,6 +82,7 @@
             </div>
         </div>
        {% endfor %}
+       </div>
       </div>
       <div class="row">
         <div class="col-sm-6 text-left">{{ pagination }}</div>

@@ -65,6 +65,7 @@
       {% if products %}
       <h3>{{ text_related_product }}</h3>
       <div class="row owl-module"> 
+        <div class="col-xs-12">
         {% for product in products %}
         {% if column_left and column_right %}
         {% set class = 'col-lg-6 col-md-6 col-sm-12 col-xs-12' %}
@@ -117,12 +118,13 @@
                 </div>
               </div>
           </div>
-        {% endfor %} </div>
+        {% endfor %} </div></div>
         {% endif %}
     
     {% if articles %}
       <h3>{{ text_related }}</h3>
       <div class="row featuder-article-module-ocs owl-module"> 
+        <div class="col-xs-12">
        {% for article in articles %}
         {% if column_left and column_right %}
         {% set class = 'col-lg-6 col-md-6 col-sm-12 col-xs-12' %}
@@ -150,7 +152,7 @@
              </div> 
             </div>
         </div>
-        {% endfor %} </div>
+        {% endfor %} </div></div>
         {% endif %}
     
     {% if review_status %}
