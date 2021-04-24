@@ -127,10 +127,10 @@
             {{ menu }}
           </div>
           <div class="col-md-6 col-xs-10">
-              {% if links_status and links %}
+              {% if links_status and rapid_links %}
               <div id="home-menu">
-                {% for link in links %}
-                  <a class="btn" href="{{ link.href }}"><span>{{ link.title }}</span></a>
+                {% for rapid_link in rapid_links %}
+                  <a class="btn" href="{{ rapid_link.href }}"><span>{{ rapid_link.title }}</span></a>
                 {% endfor %}
               </div>
               {% endif %}
